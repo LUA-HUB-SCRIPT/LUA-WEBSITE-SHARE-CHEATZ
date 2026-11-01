@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#09090c">
+  <meta name="description" content="LUAHUB SHARE - Your files, your links, one place.">
+  <title>LUAHUB SHARE — Link Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="ambient ambient-one"></div>
+<div class="ambient ambient-two"></div>
+
+<header class="topbar">
+  <a class="brand" href="#">
+    <span class="brand-icon">L</span>
+    <span>LUAHUB<span class="brand-light">.</span></span>
+  </a>
+
+  <div class="top-right">
+    <span class="live-dot"></span>
+    <span class="status">ALL SYSTEMS NORMAL</span>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="eyebrow">
+      <span class="eyebrow-dot"></span>
+      THE OFFICIAL LINK CENTER
+    </div>
+
+    <h1>Your links.<br><span>One place.</span></h1>
+
+    <p class="hero-description">
+      Temukan berbagai file, tools, dan resource yang dibagikan
+      melalui satu tempat.
+    </p>
+
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+      <input id="searchInput" type="search"
+        placeholder="Cari nama file atau kategori..."
+        autocomplete="off">
+      <kbd>SEARCH</kbd>
+    </div>
+
+    <div class="hero-bottom">
+      <span><span class="live-dot"></span> PUBLIC ACCESS</span>
+      <span>POWERED BY LUAHUB</span>
+    </div>
+  </section>
+
+  <section class="stats">
+    <article class="stat-card">
+      <span class="stat-label">TOTAL LINKS</span>
+      <strong id="totalLinks">—</strong>
+      <span class="stat-foot">Shared resources</span>
+    </article>
+
+    <article class="stat-card">
+      <span class="stat-label">CATEGORIES</span>
+      <strong id="totalCategories">—</strong>
+      <span class="stat-foot">Available collections</span>
+    </article>
+
+    <article class="stat-card">
+      <span class="stat-label">PLATFORM</span>
+      <strong>FREE</strong>
+      <span class="stat-foot">GitHub Pages</span>
+    </article>
+  </section>
+
+  <section class="library">
+    <div class="section-heading">
+      <div>
+        <div class="section-kicker">DISCOVER</div>
+        <h2>Shared library<span>.</span></h2>
+      </div>
+      <span class="library-count" id="resultCount">LOADING...</span>
+    </div>
+
+    <nav class="filters" id="filters">
+      <button class="filter active" data-category="all">All links</button>
+    </nav>
+
+    <div class="link-grid" id="linkGrid">
+      <div class="loading">
+        <span class="loader"></span>
+        <p>Loading shared links...</p>
+      </div>
+    </div>
+
+    <div class="empty-state" id="emptyState" hidden>
+      <div class="empty-icon">⌕</div>
+      <h3>No links found</h3>
+      <p>Coba gunakan kata pencarian yang berbeda.</p>
+    </div>
+  </section>
+
+  <section class="bottom-banner">
+    <div>
+      <span class="section-kicker">LUAHUB ECOSYSTEM</span>
+      <h2>Simple sharing.<br>Unlimited possibilities.</h2>
+    </div>
+    <div class="banner-symbol">L.</div>
+  </section>
+</main>
+
+<footer>
+  <a class="footer-brand" href="#">LUAHUB<span>.</span></a>
+  <p>Designed & developed with passion.</p>
+  <p class="credit">CREDIT BY <strong>AHZA</strong> © 2026</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
