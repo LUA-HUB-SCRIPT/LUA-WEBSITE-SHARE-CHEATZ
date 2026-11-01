@@ -2,153 +2,174 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#09090c">
-  <meta name="description" content="LUAHUB SHARE - Your files, your links, one place.">
-  <title>LUAHUB SHARE — Link Center</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#09090c">
+<meta name="description" content="LUAHUB SHARE - Your files, your links, one place.">
+<title>LUAHUB SHARE — Link Center</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* LINK DESCRIPTION */
+.file-description {
+  color: #92929f;
+  font-size: 12px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+  margin-top: -11px;
+  margin-bottom: 20px;
+  white-space: pre-wrap;
+}
 
-  <link rel="stylesheet" href="style.css">
+/* TUTORIAL */
+.tutorial-section, .donate-section {
+  padding-bottom: 90px;
+}
 
-  <style>
-    /* ZARCHIVER TUTORIAL */
+.tutorial-card, .donate-card {
+  position: relative;
+  overflow: hidden;
+  padding: 30px;
+  border: 1px solid #ff304b40;
+  border-radius: 22px;
+  background:
+    radial-gradient(ellipse at top right,#ff304b20,transparent 55%),
+    linear-gradient(145deg,#19131a,#101015);
+  transition: .3s;
+}
 
-    .tutorial-section {
-      padding-bottom: 100px;
-    }
+.tutorial-card:hover, .donate-card:hover {
+  border-color: #ff304b90;
+  box-shadow: 0 15px 50px #ff304b15;
+}
 
-    .tutorial-card {
-      position: relative;
-      overflow: hidden;
-      padding: 32px;
-      border: 1px solid #ff304b40;
-      border-radius: 22px;
-      background:
-        radial-gradient(ellipse at top right, #ff304b20, transparent 55%),
-        linear-gradient(145deg, #19131a, #101015);
-      transition: .3s;
-    }
+.feature-top {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 
-    .tutorial-card:hover {
-      border-color: #ff304b90;
-      box-shadow: 0 15px 50px #ff304b15;
-      transform: translateY(-3px);
-    }
+.feature-icon {
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  font-size: 35px;
+  background: #ff304b17;
+  border: 1px solid #ff304b45;
+  border-radius: 18px;
+}
 
-    .tutorial-top {
-      display: flex;
-      align-items: center;
-      gap: 22px;
-    }
+.feature-tag {
+  color: #ff647a;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
 
-    .tutorial-icon {
-      width: 75px;
-      height: 75px;
-      flex-shrink: 0;
-      display: grid;
-      place-items: center;
-      font-size: 37px;
-      background: #ff304b17;
-      border: 1px solid #ff304b45;
-      border-radius: 19px;
-    }
+.feature-top h3 {
+  font: 700 25px 'Space Grotesk',sans-serif;
+  margin: 8px 0;
+}
 
-    .tutorial-tag {
-      color: #ff647a;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 2px;
-    }
+.feature-top p {
+  color: #9999a5;
+  font-size: 13px;
+  line-height: 1.7;
+}
 
-    .tutorial-top h3 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 26px;
-      margin: 8px 0;
-    }
+.feature-info {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 25px 0;
+}
 
-    .tutorial-top p {
-      color: #9999a5;
-      font-size: 13px;
-      line-height: 1.7;
-    }
+.feature-info span {
+  padding: 10px 13px;
+  border-radius: 9px;
+  background: #ffffff08;
+  border: 1px solid #ffffff12;
+  color: #b5b5bf;
+  font-size: 11px;
+}
 
-    .tutorial-info {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin: 28px 0;
-    }
+.feature-button {
+  width: 100%;
+  min-height: 58px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 17px 20px;
+  border-radius: 12px;
+  background: linear-gradient(100deg,#ff304b,#bd1232);
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  transition: .25s;
+}
 
-    .tutorial-info span {
-      padding: 10px 14px;
-      border-radius: 9px;
-      background: #ffffff08;
-      border: 1px solid #ffffff12;
-      color: #b5b5bf;
-      font-size: 11px;
-    }
+.feature-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 35px #ff304b55;
+}
 
-    .tutorial-button {
-      width: 100%;
-      min-height: 58px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 17px 21px;
-      border-radius: 12px;
-      background: linear-gradient(100deg, #ff304b, #bd1232);
-      color: white;
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 1.3px;
-      box-shadow: 0 8px 25px #ff304b25;
-      transition: .25s;
-    }
+.feature-note {
+  color: #777783;
+  font-size: 10px;
+  text-align: center;
+  margin-top: 15px;
+}
 
-    .tutorial-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 35px #ff304b55;
-      background: linear-gradient(100deg, #ff4960, #d0183c);
-    }
+/* DONATE */
+.donate-card {
+  background:
+    radial-gradient(ellipse at 90% 0%,#ff304b30,transparent 55%),
+    linear-gradient(140deg,#211016,#101015);
+  border-color: #ff304b55;
+}
 
-    .tutorial-button .arrow {
-      font-size: 20px;
-    }
+.donate-card .feature-icon {
+  background: #ff304b20;
+}
 
-    .tutorial-note {
-      margin-top: 15px;
-      color: #777783;
-      font-size: 10px;
-      text-align: center;
-    }
+.donate-button {
+  background: linear-gradient(100deg,#ff304b,#d00035);
+  box-shadow: 0 8px 30px #ff304b25;
+}
 
-    @media(max-width:550px) {
-      .tutorial-card {
-        padding: 21px;
-      }
+.donate-button:hover {
+  box-shadow: 0 10px 40px #ff304b65;
+}
 
-      .tutorial-top {
-        align-items: flex-start;
-        gap: 14px;
-      }
+@media(max-width:550px) {
+  .tutorial-card, .donate-card {
+    padding: 20px;
+  }
 
-      .tutorial-icon {
-        width: 57px;
-        height: 57px;
-        font-size: 28px;
-      }
+  .feature-top {
+    align-items: flex-start;
+    gap: 13px;
+  }
 
-      .tutorial-top h3 {
-        font-size: 20px;
-      }
-    }
-  </style>
+  .feature-icon {
+    width: 55px;
+    height: 55px;
+    font-size: 27px;
+  }
+
+  .feature-top h3 {
+    font-size: 20px;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -172,9 +193,7 @@
 <main>
 
   <!-- HERO -->
-
   <section class="hero">
-
     <div class="eyebrow">
       <span class="eyebrow-dot"></span>
       THE OFFICIAL LINK CENTER
@@ -189,14 +208,9 @@
 
     <div class="search-wrap">
       <span class="search-icon">⌕</span>
-
-      <input
-        id="searchInput"
-        type="search"
+      <input id="searchInput" type="search"
         placeholder="Cari nama file atau kategori..."
-        autocomplete="off"
-      >
-
+        autocomplete="off">
       <kbd>SEARCH</kbd>
     </div>
 
@@ -204,13 +218,10 @@
       <span><span class="live-dot"></span> PUBLIC ACCESS</span>
       <span>POWERED BY LUAHUB</span>
     </div>
-
   </section>
 
-  <!-- STATISTICS -->
-
+  <!-- STATS -->
   <section class="stats">
-
     <article class="stat-card">
       <span class="stat-label">TOTAL LINKS</span>
       <strong id="totalLinks">—</strong>
@@ -228,37 +239,27 @@
       <strong>FREE</strong>
       <span class="stat-foot">GitHub Pages</span>
     </article>
-
   </section>
 
-  <!-- SHARED LIBRARY -->
-
+  <!-- LIBRARY -->
   <section class="library">
-
     <div class="section-heading">
       <div>
         <div class="section-kicker">DISCOVER</div>
         <h2>Shared library<span>.</span></h2>
       </div>
-
-      <span class="library-count" id="resultCount">
-        LOADING...
-      </span>
+      <span class="library-count" id="resultCount">LOADING...</span>
     </div>
 
     <nav class="filters" id="filters">
-      <button class="filter active" data-category="all">
-        All links
-      </button>
+      <button class="filter active" data-category="all">All links</button>
     </nav>
 
     <div class="link-grid" id="linkGrid">
-
       <div class="loading">
         <span class="loader"></span>
         <p>Loading shared links...</p>
       </div>
-
     </div>
 
     <div class="empty-state" id="emptyState" hidden>
@@ -266,124 +267,112 @@
       <h3>No links found</h3>
       <p>Coba gunakan kata pencarian yang berbeda.</p>
     </div>
-
   </section>
 
   <!-- ZARCHIVER TUTORIAL -->
-
   <section class="tutorial-section">
-
     <div class="section-heading">
-
       <div>
         <div class="section-kicker">LEARNING CENTER</div>
         <h2>Tutorial<span>.</span></h2>
       </div>
-
-      <span class="library-count">
-        GUIDES & HELP
-      </span>
-
+      <span class="library-count">GUIDES & HELP</span>
     </div>
 
     <article class="tutorial-card">
-
-      <div class="tutorial-top">
-
-        <div class="tutorial-icon">
-          📁
-        </div>
-
+      <div class="feature-top">
+        <div class="feature-icon">📁</div>
         <div>
-
-          <span class="tutorial-tag">
-            ANDROID GUIDE
-          </span>
-
+          <span class="feature-tag">ANDROID GUIDE</span>
           <h3>ZArchiver Tutorial</h3>
-
           <p>
-            Pelajari cara menggunakan ZArchiver untuk
-            mengelola file, arsip, dan folder Android.
+            Pelajari cara menggunakan ZArchiver untuk mengelola
+            file, arsip, dan folder Android.
           </p>
-
         </div>
-
       </div>
 
-      <div class="tutorial-info">
-
+      <div class="feature-info">
         <span>📱 Android</span>
         <span>📂 File Manager</span>
         <span>▶ Video Tutorial</span>
-
       </div>
 
-      <a
-        class="tutorial-button"
+      <a class="feature-button"
         href="https://youtu.be/l3Q-H1Gh5CQ?si=4u_Qw7ckbw2EVUJR"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-
+        target="_blank" rel="noopener noreferrer">
         <span>▶ &nbsp; TONTON TUTORIAL SEKARANG</span>
-
-        <span class="arrow">↗</span>
-
+        <span>↗</span>
       </a>
 
-      <p class="tutorial-note">
+      <p class="feature-note">
         LUAHUB LEARNING CENTER · CREDIT BY AHZA
       </p>
-
     </article>
-
   </section>
 
-  <!-- BOTTOM BANNER -->
+  <!-- DONATE -->
+  <section class="donate-section">
+    <div class="section-heading">
+      <div>
+        <div class="section-kicker">SUPPORT THE CREATOR</div>
+        <h2>Support us<span>.</span></h2>
+      </div>
+      <span class="library-count">DONATION CENTER</span>
+    </div>
 
+    <article class="donate-card">
+      <div class="feature-top">
+        <div class="feature-icon">❤️</div>
+        <div>
+          <span class="feature-tag">LUAHUB SUPPORT</span>
+          <h3>Support LUAHUB</h3>
+          <p>
+            Suka dengan project LUAHUB? Dukunganmu bisa membantu
+            memberikan semangat untuk mengembangkan project
+            dan karya baru.
+          </p>
+        </div>
+      </div>
+
+      <div class="feature-info">
+        <span>❤️ Support Creator</span>
+        <span>🎮 Gaming Setup Wishlist</span>
+        <span>✨ Support Development</span>
+      </div>
+
+      <a class="feature-button donate-button"
+        href="https://saweria.co/LUAHUBDONATE/wishlist/kursi-gaming-impian-2-ftqvq0"
+        target="_blank" rel="noopener noreferrer">
+        <span>❤️ &nbsp; DONATE VIA SAWERIA</span>
+        <span>↗</span>
+      </a>
+
+      <p class="feature-note">
+        THANK YOU FOR SUPPORTING LUAHUB · BY AHZA
+      </p>
+    </article>
+  </section>
+
+  <!-- BANNER -->
   <section class="bottom-banner">
-
     <div>
-
-      <span class="section-kicker">
-        LUAHUB ECOSYSTEM
-      </span>
-
-      <h2>
-        Simple sharing.<br>
-        Unlimited possibilities.
-      </h2>
-
+      <span class="section-kicker">LUAHUB ECOSYSTEM</span>
+      <h2>Simple sharing.<br>Unlimited possibilities.</h2>
     </div>
-
-    <div class="banner-symbol">
-      L.
-    </div>
-
+    <div class="banner-symbol">L.</div>
   </section>
 
 </main>
 
-<!-- FOOTER -->
-
 <footer>
-
-  <a class="footer-brand" href="#">
-    LUAHUB<span>.</span>
-  </a>
-
+  <a class="footer-brand" href="#">LUAHUB<span>.</span></a>
   <p>Designed & developed with passion.</p>
-
-  <p class="credit">
-    CREDIT BY <strong>AHZA</strong> © 2026
-  </p>
-
+  <p class="credit">CREDIT BY <strong>AHZA</strong> © 2026</p>
 </footer>
 
 <div class="toast" id="toast"></div>
 
 <script src="app.js"></script>
-
 </body>
 </html>
