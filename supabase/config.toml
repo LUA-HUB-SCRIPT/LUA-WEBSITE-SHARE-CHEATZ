@@ -1,0 +1,4 @@
+project_id = "qwguqmdbakymestsguku"
+
+[functions.links]
+verify_jwt = false
