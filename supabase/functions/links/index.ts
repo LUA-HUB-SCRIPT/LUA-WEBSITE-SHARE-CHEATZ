@@ -1,0 +1,89 @@
+import { createClient } from "npm:@supabase/supabase-js@2";
+
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+};
+
+const json = (body: unknown, status = 200) =>
+  new Response(JSON.stringify(body), {
+    status,
+    headers: { ...corsHeaders, "Content-Type": "application/json" },
+  });
+
+const MAX_URL_LENGTH = 20;
+const DAILY_LIMIT = 5;
+
+async function sha256(value: string) {
+  const bytes = new TextEncoder().encode(value);
+  const digest = await crypto.subtle.digest("SHA-256", bytes);
+  return Array.from(new Uint8Array(digest)).map(b => b.toString(16).padStart(2, "0")).join("");
+}
+
+Deno.serve(async (req) => {
+  if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
+
+  const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
+  const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+  const pepper = Deno.env.get("RATE_LIMIT_SECRET");
+  if (!supabaseUrl || !serviceKey || !pepper) return json({ error: "Server belum dikonfigurasi." }, 500);
+
+  const db = createClient(supabaseUrl, serviceKey, { auth: { persistSession: false } });
+
+  if (req.method === "GET") {
+    const { data, error } = await db.from("link_submissions")
+      .select("id,url,title,created_at")
+      .eq("status", "approved")
+      .order("created_at", { ascending: false })
+      .limit(100);
+    if (error) return json({ error: "Gagal mengambil daftar link." }, 500);
+    return json({ links: data ?? [] });
+  }
+
+  if (req.method !== "POST") return json({ error: "Method tidak didukung." }, 405);
+
+  let body: { url?: string; website?: string };
+  try { body = await req.json(); } catch { return json({ error: "Format permintaan tidak valid." }, 400); }
+
+  // Honeypot field catches simple automated spam.
+  if (body.website) return json({ ok: true, message: "Submission diterima." });
+
+  const url = typeof body.url === "string" ? body.url.trim() : "";
+  if (!url || url.length > MAX_URL_LENGTH) {
+    return json({ error: `URL wajib diisi dan maksimal ${MAX_URL_LENGTH} karakter.` }, 400);
+  }
+
+  let parsed: URL;
+  try { parsed = new URL(url); } catch { return json({ error: "URL tidak valid." }, 400); }
+  if (!["http:", "https:"].includes(parsed.protocol)) {
+    return json({ error: "Hanya URL HTTP atau HTTPS yang diperbolehkan." }, 400);
+  }
+
+  // IP is used only to calculate a salted hash; the raw value is never stored.
+  const forwarded = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
+  const realIp = req.headers.get("x-real-ip")?.trim();
+  const visitor = forwarded || realIp || "unknown-client";
+  const visitorHash = await sha256(`${pepper}:${visitor}`);
+
+  const { data: quota, error: quotaError } = await db.rpc("consume_link_quota", {
+    p_visitor_hash: visitorHash,
+    p_daily_limit: DAILY_LIMIT,
+  }).single();
+
+  if (quotaError || !quota) return json({ error: "Tidak dapat memeriksa batas kiriman." }, 500);
+  if (!quota.allowed) return json({ error: "Batas harian tercapai: maksimal 5 link per hari." }, 429);
+
+  const { error: insertError } = await db.from("link_submissions").insert({
+    url,
+    title: parsed.hostname,
+    status: "pending",
+  });
+  if (insertError) return json({ error: "Link gagal disimpan." }, 500);
+
+  return json({
+    ok: true,
+    message: "Link dikirim untuk ditinjau admin.",
+    remaining_today: quota.remaining,
+  }, 201);
+});
