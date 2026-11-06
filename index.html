@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#09090d">
+  <meta name="description" content="LUAHUB SHARE — pusat link komunitas LUAHUB.">
+  <title>LUAHUB SHARE — V5.0.0</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="LUAHUB SHARE home">
+      <span class="brand-mark">L<span>H</span></span>
+      <span class="brand-copy"><b>LUAHUB <i>SHARE</i></b><small>LINK CENTER <em>V5.0.0</em></small></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Buka navigasi">☰</button>
+    <nav id="mainNav">
+      <a class="nav-link active" href="#home">Home</a>
+      <a class="nav-link" href="#explore">Explore</a>
+      <a class="nav-link" href="#submit">Submit Link</a>
+      <a class="nav-link" href="#about">About</a>
+      <a class="nav-donate" href="https://saweria.co/LUAHUBDONATE/wishlist/kursi-gaming-impian-2-ftqvq0" target="_blank" rel="noopener">Support ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span> COMMUNITY LINK PLATFORM <span class="version">V5.0.0</span></div>
+        <h1>Share something<br><span>worth clicking.</span></h1>
+        <p class="hero-text">Satu tempat untuk menemukan dan membagikan link pilihan komunitas LUAHUB. Simpel, cepat, dan terkurasi.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#explore">Explore links <span>↗</span></a>
+          <a class="btn btn-ghost" href="#submit">Kirim link <span>＋</span></a>
+        </div>
+        <div class="hero-meta"><span><i class="meta-dot"></i> Community powered</span><span>•</span><span>Owner <b>AHZA</b></span></div>
+      </div>
+      <div class="hero-visual">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+        <div class="hero-card">
+          <div class="window-head"><span></span><span></span><span></span><small>LUAHUB://SHARE</small></div>
+          <div class="hero-card-inner">
+            <div class="link-symbol">↗</div>
+            <div class="mini-label">YOUR COMMUNITY HUB</div>
+            <h3>One link.<br>New possibilities.</h3>
+            <div class="fake-url"><span>https://</span> luahub.share <b>↗</b></div>
+            <div class="card-foot"><span class="live-dot"></span> SYSTEM ONLINE <span>●●●</span></div>
+          </div>
+        </div>
+        <div class="float-chip chip-top">✦ <b>LINKS</b> THAT MATTER</div>
+        <div class="float-chip chip-bottom"><span>⌁</span> Powered by community</div>
+      </div>
+    </section>
+
+    <section class="stats section">
+      <div class="stat"><strong id="linkCount">—</strong><span>PUBLIC LINKS</span></div>
+      <div class="stat"><strong>05</strong><span>DAILY SUBMISSIONS</span></div>
+      <div class="stat"><strong>24/7</strong><span>ONLINE ACCESS</span></div>
+      <div class="stat"><strong>V5</strong><span>PLATFORM VERSION</span></div>
+    </section>
+
+    <section class="section content-section" id="explore">
+      <div class="section-heading">
+        <div><div class="eyebrow">THE COMMUNITY COLLECTION</div><h2>Explore <span>links.</span></h2><p>Link yang sudah disetujui akan muncul di sini.</p></div>
+        <button class="btn btn-ghost refresh-btn" id="refreshBtn">↻ Refresh</button>
+      </div>
+      <div class="search-wrap"><span>⌕</span><input id="searchInput" type="search" placeholder="Cari link berdasarkan alamat..." autocomplete="off"><kbd>SEARCH</kbd></div>
+      <div class="link-grid" id="linkGrid"><div class="loading-card">Menghubungkan ke LUAHUB API...</div></div>
+      <p class="empty-state hidden" id="emptyState">Belum ada link yang cocok. Coba kata kunci lain.</p>
+      <p class="api-note" id="apiStatus"><span class="status-dot"></span> Menyiapkan koneksi API...</p>
+    </section>
+
+    <section class="submit-section section" id="submit">
+      <div class="submit-panel">
+        <div class="submit-copy">
+          <div class="eyebrow">CONTRIBUTE TO THE HUB</div>
+          <h2>Punya link<br><span>untuk dibagikan?</span></h2>
+          <p>Kirim link kamu ke komunitas. Link akan diperiksa admin sebelum ditampilkan secara publik.</p>
+          <div class="rule-list"><div><b>01</b><span>Hanya URL HTTP/HTTPS — bukan upload file.</span></div><div><b>02</b><span>Maksimal 20 karakter per URL.</span></div><div><b>03</b><span>Maksimal 5 kiriman per alamat IP setiap hari.</span></div></div>
+        </div>
+        <form class="submit-form" id="submitForm">
+          <div class="form-top"><span class="form-icon">↗</span><span class="form-tag">PUBLIC SUBMISSION</span></div>
+          <label for="linkInput">LINK URL</label>
+          <div class="input-shell"><span>↗</span><input id="linkInput" name="url" type="url" placeholder="https://..." maxlength="20" required><b id="charCount">0/20</b></div>
+          <div class="field-hint">URL lebih dari 20 karakter akan ditolak.</div>
+          <div class="hp-field" aria-hidden="true"><label for="website">Leave this empty</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+          <button class="btn btn-primary submit-btn" type="submit" id="submitBtn">Kirim link <span>↗</span></button>
+          <p class="form-message" id="formMessage" role="status"></p>
+          <div class="form-bottom"><span>◈ SECURE SUBMISSION</span><span>REVIEW REQUIRED</span></div>
+        </form>
+      </div>
+    </section>
+
+    <section class="about-section section" id="about">
+      <div><div class="eyebrow">WHO WE ARE</div><h2>Built by <span>LUAHUB.</span></h2></div>
+      <div class="about-info"><p>LUAHUB SHARE adalah pusat berbagi link komunitas. Dibuat untuk membantu pengunjung menemukan resource yang dibagikan dan disetujui oleh admin.</p><div class="credits"><span>OWNER <b>AHZA</b></span><span>TEAM <b>LUAHUB</b></span><span>RELEASE <b>5.0.0</b></span></div></div>
+    </section>
+  </main>
+
+  <footer><a class="footer-brand" href="#home">LUAHUB <span>SHARE</span></a><span>CREDIT BY AHZA © 2026</span><a href="https://saweria.co/LUAHUBDONATE/wishlist/kursi-gaming-impian-2-ftqvq0" target="_blank" rel="noopener">Support the project ↗</a></footer>
+  <div class="toast" id="toast"></div>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
