@@ -1,314 +1,376 @@
-```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0b0b0d">
-  <meta name="description" content="LUAHUB SHARE - Modern Script, Link and APK Center">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#09090d">
+  <meta name="description" content="LUAHUB SHARE — pusat link komunitas LUAHUB.">
   <title>LUAHUB SHARE — V6.0.0</title>
-  <link rel="stylesheet" href="style.css">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
 
-  <!-- BACKGROUND -->
-  <div class="bg-effects">
-    <div class="red-glow glow-one"></div>
-    <div class="red-glow glow-two"></div>
-  </div>
-
-  <!-- NAVBAR -->
-  <header class="navbar">
-    <a href="#home" class="brand">
-      <span class="brand-icon">L</span>
-      <span>LUAHUB<span class="red"> SHARE</span></span>
-      <small>V6.0.0</small>
+  <!-- HEADER: UI ASLI + FITUR BARU -->
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="LUAHUB SHARE home">
+      <span class="brand-mark">L<span>H</span></span>
+      <span class="brand-copy">
+        <b>LUAHUB <i>SHARE</i></b>
+        <small>LINK CENTER <em>V6.0.0</em></small>
+      </span>
     </a>
 
-    <nav class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#explore">Explore</a>
-      <a href="#scripts">Scripts</a>
-      <a href="#apk">APK Center</a>
-      <a href="#about">About</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Buka navigasi">☰</button>
+
+    <nav id="mainNav">
+      <a class="nav-link active" href="#home">Home</a>
+      <a class="nav-link" href="#explore">Explore</a>
+      <a class="nav-link" href="#submit">Submit Link</a>
+      <a class="nav-link" href="#about">About</a>
+
+      <!-- FITUR TAMBAHAN -->
+      <a class="nav-link" href="#scripts">Scripts</a>
+      <a class="nav-link" href="#apk">APK Center</a>
+
+      <!-- DONATE ASLI TETAP -->
+      <a class="nav-donate"
+         href="https://saweria.co/LUAHUBDONATE/wishlist/kursi-gaming-impian-2-ftqvq0"
+         target="_blank" rel="noopener">
+        Support ↗
+      </a>
     </nav>
 
-    <div class="nav-actions">
-      <a id="discordButton" class="discord-btn" href="#" target="_blank" rel="noopener">
-        <span>◈</span> Discord
+    <!-- FITUR KANAN ATAS -->
+    <div class="topbar-actions">
+
+      <button class="top-action share-action" id="shareBtn" type="button">
+        ↗ Share
+      </button>
+
+      <a class="top-action discord-action"
+         id="discordBtn"
+         href="#"
+         target="_blank"
+         rel="noopener">
+        Discord
       </a>
-      <button id="googleLoginBtn" class="login-btn" type="button">
+
+      <button class="top-action google-login" id="googleLoginBtn" type="button">
         Login Google
       </button>
-      <div id="userProfile" class="user-profile" hidden>
-        <span id="userAvatar">U</span>
-        <span id="userEmail">User</span>
-        <span id="userRole" class="role-badge">USER</span>
-        <button id="logoutBtn" class="logout-btn" type="button">Logout</button>
-      </div>
-    </div>
 
-    <button id="mobileMenuBtn" class="mobile-menu-btn" type="button" aria-label="Buka menu">☰</button>
+      <div class="account-area" id="accountArea" hidden>
+        <img id="userAvatar" class="user-avatar" src="" alt="Avatar pengguna">
+        <div class="account-info">
+          <b id="userName">User</b>
+          <small id="userRole">USER</small>
+        </div>
+        <button id="logoutBtn" type="button" class="logout-btn">Logout</button>
+      </div>
+
+    </div>
   </header>
 
   <main>
 
-    <!-- HOME -->
-    <section id="home" class="hero">
-      <div class="hero-content">
-        <div class="status-label">
-          <span class="status-dot"></span>
-          LUAHUB SHARE PLATFORM
+    <!-- HERO ASLI -->
+    <section class="hero section" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow">
+          <span class="pulse"></span>
+          COMMUNITY LINK PLATFORM
+          <span class="version">V6.0.0</span>
         </div>
 
-        <h1>
-          SHARE YOUR<br>
-          <span>DIGITAL WORLD.</span>
-        </h1>
+        <h1>Share something<br><span>worth clicking.</span></h1>
 
-        <p>
-          Satu tempat untuk berbagi script, link, aplikasi,
-          dan berbagai konten komunitas LUAHUB.
+        <p class="hero-text">
+          Satu tempat untuk menemukan dan membagikan link pilihan komunitas LUAHUB.
+          Simpel, cepat, dan terkurasi.
         </p>
 
         <div class="hero-actions">
-          <a href="#explore" class="primary-btn">Explore Content ↗</a>
-          <a id="heroDiscordButton" href="#" target="_blank" rel="noopener" class="outline-btn">
-            Join Discord
+          <a class="btn btn-primary" href="#explore">
+            Explore links <span>↗</span>
+          </a>
+          <a class="btn btn-ghost" href="#submit">
+            Kirim link <span>＋</span>
           </a>
         </div>
 
-        <div class="hero-credit">
-          <span>OWNER</span>
-          <strong>AHZA</strong>
-          <span class="credit-divider">/</span>
-          <span>TEAM</span>
-          <strong>LUAHUB</strong>
+        <div class="hero-meta">
+          <span><i class="meta-dot"></i> Community powered</span>
+          <span>•</span>
+          <span>Owner <b>AHZA</b></span>
         </div>
       </div>
 
-      <div class="hero-card">
-        <div class="hero-card-top">
-          <span class="red-indicator"></span>
-          <span>LUAHUB SYSTEM</span>
-          <span class="version">6.0.0</span>
+      <div class="hero-visual">
+        <div class="orbit orbit-a"></div>
+        <div class="orbit orbit-b"></div>
+
+        <div class="hero-card">
+          <div class="window-head">
+            <span></span><span></span><span></span>
+            <small>LUAHUB://SHARE</small>
+          </div>
+
+          <div class="hero-card-inner">
+            <div class="link-symbol">↗</div>
+            <div class="mini-label">YOUR COMMUNITY HUB</div>
+            <h3>One link.<br>New possibilities.</h3>
+            <div class="fake-url">
+              <span>https://</span> luahub.share <b>↗</b>
+            </div>
+            <div class="card-foot">
+              <span class="live-dot"></span>
+              SYSTEM ONLINE
+              <span>●●●</span>
+            </div>
+          </div>
         </div>
-        <div class="hero-symbol">LH<span>.</span></div>
-        <div class="hero-card-bottom">
-          <strong>LINK. SCRIPT. APK.</strong>
-          <small>ONE COMMUNITY PLATFORM</small>
+
+        <div class="float-chip chip-top">✦ <b>LINKS</b> THAT MATTER</div>
+        <div class="float-chip chip-bottom">
+          <span>⌁</span> Powered by community
         </div>
       </div>
     </section>
 
-    <!-- STATS -->
-    <section class="stats-section">
-      <div class="stat-card">
-        <span class="stat-icon">▤</span>
-        <strong id="totalLinks">0</strong>
-        <small>LINKS</small>
+    <!-- STATISTIK ASLI -->
+    <section class="stats section">
+      <div class="stat">
+        <strong id="linkCount">—</strong>
+        <span>PUBLIC LINKS</span>
       </div>
-      <div class="stat-card">
-        <span class="stat-icon">⌘</span>
-        <strong id="totalScripts">0</strong>
-        <small>SCRIPTS</small>
+      <div class="stat">
+        <strong>05</strong>
+        <span>DAILY SUBMISSIONS</span>
       </div>
-      <div class="stat-card">
-        <span class="stat-icon">▣</span>
-        <strong id="totalApks">0</strong>
-        <small>APK FILES</small>
+      <div class="stat">
+        <strong>24/7</strong>
+        <span>ONLINE ACCESS</span>
       </div>
-      <div class="stat-card">
-        <span class="stat-icon">◉</span>
-        <strong id="totalUsers">—</strong>
-        <small>COMMUNITY</small>
+      <div class="stat">
+        <strong>V6</strong>
+        <span>PLATFORM VERSION</span>
       </div>
     </section>
 
-    <!-- EXPLORE -->
-    <section id="explore" class="content-section">
+    <!-- EXPLORE ASLI -->
+    <section class="section content-section" id="explore">
       <div class="section-heading">
         <div>
-          <span class="section-kicker">DISCOVER</span>
-          <h2>Explore <span>Content.</span></h2>
-          <p>Temukan konten yang dibagikan komunitas.</p>
+          <div class="eyebrow">THE COMMUNITY COLLECTION</div>
+          <h2>Explore <span>links.</span></h2>
+          <p>Link yang sudah disetujui akan muncul di sini.</p>
         </div>
-        <input id="searchInput" type="search" placeholder="Cari konten..." aria-label="Cari konten">
+
+        <button class="btn btn-ghost refresh-btn" id="refreshBtn">
+          ↻ Refresh
+        </button>
       </div>
 
-      <div id="linkGrid" class="content-grid">
-        <div class="empty-state">Memuat konten...</div>
+      <div class="search-wrap">
+        <span>⌕</span>
+        <input id="searchInput" type="search"
+               placeholder="Cari link berdasarkan alamat..."
+               autocomplete="off">
+        <kbd>SEARCH</kbd>
       </div>
+
+      <div class="link-grid" id="linkGrid">
+        <div class="loading-card">Menghubungkan ke LUAHUB API...</div>
+      </div>
+
+      <p class="empty-state hidden" id="emptyState">
+        Belum ada link yang cocok. Coba kata kunci lain.
+      </p>
+
+      <p class="api-note" id="apiStatus">
+        <span class="status-dot"></span> Menyiapkan koneksi API...
+      </p>
     </section>
 
-    <!-- SCRIPTS -->
-    <section id="scripts" class="content-section">
+    <!-- TAMBAHAN: SCRIPT CENTER -->
+    <section class="section content-section" id="scripts">
       <div class="section-heading">
         <div>
-          <span class="section-kicker">SCRIPT LIBRARY</span>
+          <div class="eyebrow">LUAHUB SCRIPT LIBRARY</div>
           <h2>Script <span>Center.</span></h2>
-          <p>Kumpulan script dan kode dari komunitas.</p>
+          <p>Script pilihan komunitas LUAHUB.</p>
         </div>
       </div>
 
-      <div id="scriptGrid" class="content-grid">
-        <div class="empty-state">Memuat script...</div>
+      <div class="search-wrap">
+        <span>⌕</span>
+        <input id="scriptSearch" type="search"
+               placeholder="Cari script..." autocomplete="off">
+      </div>
+
+      <div class="link-grid" id="scriptGrid">
+        <div class="loading-card">Memuat script...</div>
       </div>
     </section>
 
-    <!-- APK -->
-    <section id="apk" class="content-section">
+    <!-- TAMBAHAN: APK CENTER -->
+    <section class="section content-section" id="apk">
       <div class="section-heading">
         <div>
-          <span class="section-kicker">APPLICATION LIBRARY</span>
+          <div class="eyebrow">LUAHUB APPLICATION LIBRARY</div>
           <h2>APK <span>Center.</span></h2>
-          <p>Temukan aplikasi yang dibagikan oleh komunitas.</p>
+          <p>Aplikasi yang dibagikan oleh komunitas.</p>
         </div>
       </div>
 
-      <div class="security-notice">
-        <strong>⚠ Keamanan APK</strong>
-        <p>Unduh hanya file dari sumber yang kamu percaya. Periksa izin aplikasi dan keamanan file sebelum memasangnya.</p>
+      <div class="apk-notice">
+        <b>⚠ Catatan keamanan</b>
+        <p>
+          Unduh aplikasi hanya dari sumber yang kamu percaya.
+          Periksa keamanan file dan izin aplikasi sebelum memasangnya.
+        </p>
       </div>
 
-      <div id="apkGrid" class="content-grid">
-        <div class="empty-state">Memuat APK...</div>
+      <div class="link-grid" id="apkGrid">
+        <div class="loading-card">Memuat APK...</div>
       </div>
     </section>
 
-    <!-- SUBMIT -->
-    <section id="submit" class="content-section">
-      <div class="section-heading">
-        <div>
-          <span class="section-kicker">COMMUNITY CONTRIBUTION</span>
-          <h2>Submit <span>Content.</span></h2>
-          <p>Bagikan konten kepada komunitas LUAHUB.</p>
-        </div>
-      </div>
+    <!-- SUBMIT ASLI TETAP -->
+    <section class="submit-section section" id="submit">
+      <div class="submit-panel">
+        <div class="submit-copy">
+          <div class="eyebrow">CONTRIBUTE TO THE HUB</div>
+          <h2>Punya link<br><span>untuk dibagikan?</span></h2>
 
-      <form id="submitForm" class="form-card">
-        <label for="contentType">Jenis konten</label>
-        <select id="contentType" name="type" required>
-          <option value="link">Website / Link</option>
-          <option value="script">Script</option>
-          <option value="apk">File APK</option>
-        </select>
+          <p>
+            Kirim link kamu ke komunitas. Link akan diperiksa admin
+            sebelum ditampilkan secara publik.
+          </p>
 
-        <label for="contentTitle">Nama konten</label>
-        <input id="contentTitle" name="title" maxlength="100" placeholder="Nama konten..." required>
-
-        <label for="gameType">Kategori / Game</label>
-        <input id="gameType" name="gameType" maxlength="60" placeholder="Contoh: Roblox, Minecraft, Lainnya">
-
-        <label for="description">Deskripsi</label>
-        <textarea id="description" name="description" maxlength="1000" placeholder="Jelaskan konten kamu..."></textarea>
-
-        <div id="urlField">
-          <label for="contentUrl">Link konten</label>
-          <input id="contentUrl" name="url" type="url" placeholder="https://...">
+          <div class="rule-list">
+            <div>
+              <b>01</b>
+              <span>Hanya URL HTTP/HTTPS — bukan upload file.</span>
+            </div>
+            <div>
+              <b>02</b>
+              <span>Maksimal 20 karakter per URL.</span>
+            </div>
+            <div>
+              <b>03</b>
+              <span>Maksimal 5 kiriman per alamat IP setiap hari.</span>
+            </div>
+          </div>
         </div>
 
-        <div id="fileField" hidden>
-          <label for="apkFile">Pilih file APK</label>
-          <input id="apkFile" name="file" type="file" accept=".apk,application/vnd.android.package-archive">
-          <small>Maksimum ukuran dan validasi file ditentukan oleh server.</small>
-        </div>
+        <form class="submit-form" id="submitForm">
+          <div class="form-top">
+            <span class="form-icon">↗</span>
+            <span class="form-tag">PUBLIC SUBMISSION</span>
+          </div>
 
-        <button type="submit" class="primary-btn submit-btn">Kirim Konten ↗</button>
-        <p id="submitMessage" class="form-message" role="status"></p>
-      </form>
-    </section>
+          <label for="linkInput">LINK URL</label>
 
-    <!-- ADMIN -->
-    <section id="admin" class="content-section" hidden>
-      <div class="section-heading">
-        <div>
-          <span class="section-kicker">RESTRICTED AREA</span>
-          <h2>Admin <span>Dashboard.</span></h2>
-          <p>Pengelolaan konten LUAHUB SHARE.</p>
-        </div>
-        <span class="owner-label">✦ OWNER ACCESS</span>
-      </div>
+          <div class="input-shell">
+            <span>↗</span>
+            <input id="linkInput" name="url" type="url"
+                   placeholder="https://..." maxlength="20" required>
+            <b id="charCount">0/20</b>
+          </div>
 
-      <div class="admin-overview">
-        <div class="admin-stat">
-          <strong id="pendingCount">0</strong>
-          <small>Pending</small>
-        </div>
-        <div class="admin-stat">
-          <strong id="approvedCount">0</strong>
-          <small>Approved</small>
-        </div>
-        <div class="admin-stat">
-          <strong id="rejectedCount">0</strong>
-          <small>Rejected</small>
-        </div>
-      </div>
+          <div class="field-hint">
+            URL lebih dari 20 karakter akan ditolak.
+          </div>
 
-      <div class="admin-panel">
-        <h3>Manage Content</h3>
-        <div id="adminList" class="content-grid">
-          <div class="empty-state">Dashboard menunggu autentikasi Owner.</div>
-        </div>
-      </div>
+          <div class="hp-field" aria-hidden="true">
+            <label for="website">Leave this empty</label>
+            <input id="website" name="website"
+                   tabindex="-1" autocomplete="off">
+          </div>
 
-      <div id="editPanel" class="admin-panel" hidden>
-        <h3>Edit Content</h3>
-        <form id="editForm">
-          <input type="hidden" id="editId">
-          <label for="editTitle">Nama</label>
-          <input id="editTitle" required>
-          <label for="editGameType">Kategori / Game</label>
-          <input id="editGameType">
-          <label for="editDescription">Deskripsi</label>
-          <textarea id="editDescription"></textarea>
-          <label for="editUrl">URL</label>
-          <input id="editUrl" type="url">
-          <div class="admin-actions">
-            <button type="submit" class="primary-btn">Simpan Perubahan</button>
-            <button type="button" id="cancelEditBtn" class="outline-btn">Batal</button>
+          <button class="btn btn-primary submit-btn"
+                  type="submit" id="submitBtn">
+            Kirim link <span>↗</span>
+          </button>
+
+          <p class="form-message" id="formMessage" role="status"></p>
+
+          <div class="form-bottom">
+            <span>◈ SECURE SUBMISSION</span>
+            <span>REVIEW REQUIRED</span>
           </div>
         </form>
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="about-section">
-      <span class="section-kicker">ABOUT LUAHUB</span>
-      <h2>Built for <span>Community.</span></h2>
-      <p>
-        LUAHUB SHARE adalah platform berbagi konten digital
-        yang dikembangkan oleh tim LUAHUB.
-      </p>
-      <div class="about-credit">
-        <div><small>OWNER</small><strong>AHZA</strong></div>
-        <div><small>DEVELOPMENT TEAM</small><strong>LUAHUB</strong></div>
-        <div><small>VERSION</small><strong>6.0.0</strong></div>
+    <!-- TAMBAHAN: OWNER DASHBOARD -->
+    <section class="section admin-section hidden" id="ownerDashboard">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">RESTRICTED ACCESS</div>
+          <h2>Owner <span>Dashboard.</span></h2>
+          <p>Kelola konten LUAHUB SHARE.</p>
+        </div>
+        <span class="owner-badge">✦ OWNER</span>
+      </div>
+
+      <div class="admin-panel">
+        <h3>Content Management</h3>
+        <div id="adminContentList">
+          <div class="loading-card">Memuat data admin...</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT ASLI -->
+    <section class="about-section section" id="about">
+      <div>
+        <div class="eyebrow">WHO WE ARE</div>
+        <h2>Built by <span>LUAHUB.</span></h2>
+      </div>
+
+      <div class="about-info">
+        <p>
+          LUAHUB SHARE adalah pusat berbagi link komunitas.
+          Dibuat untuk membantu pengunjung menemukan resource
+          yang dibagikan dan disetujui oleh admin.
+        </p>
+
+        <div class="credits">
+          <span>OWNER <b>AHZA</b></span>
+          <span>TEAM <b>LUAHUB</b></span>
+          <span>RELEASE <b>6.0.0</b></span>
+        </div>
       </div>
     </section>
 
   </main>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-brand">LUAHUB<span> SHARE.</span></div>
-    <p>Share your digital world.</p>
-    <div class="footer-links">
-      <a href="#home">Home</a>
-      <a href="#explore">Explore</a>
-      <a id="footerDiscordButton" href="#" target="_blank" rel="noopener">Discord</a>
-    </div>
-    <small>© 2026 LUAHUB TEAM. Created by AHZA.</small>
-    <small>V6.0.0 — RED × BLACK EDITION</small>
+  <!-- FOOTER ASLI + DONATE TETAP -->
+  <footer>
+    <a class="footer-brand" href="#home">
+      LUAHUB <span>SHARE</span>
+    </a>
+
+    <span>CREDIT BY AHZA © 2026</span>
+
+    <a href="https://saweria.co/LUAHUBDONATE/wishlist/kursi-gaming-impian-2-ftqvq0"
+       target="_blank" rel="noopener">
+      Support the project ↗
+    </a>
   </footer>
 
-  <!-- APP CONFIGURATION -->
+  <div class="toast" id="toast" role="status"></div>
+
   <script src="config.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
-```
